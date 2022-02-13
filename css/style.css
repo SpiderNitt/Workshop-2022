@@ -1,0 +1,54 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Clear Sans','Helvetica Neue','Arial';
+}
+header{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #d3d6da;
+    justify-content: space-between;
+    align-items: center;
+}
+header .title{
+    /* font-family: 'nyt-karnakcondensed'; */
+    font-weight: 700;
+    font-size: 37px;
+    /* text-align: center; */
+}
+.guess-grid{
+    display: grid;
+    grid-template-rows: repeat(6,1fr);
+    grid-template-columns: repeat(5,1fr);
+    width: 350px;
+    height: 420px;
+    grid-gap: 5px;
+    padding: 10px;
+    margin: 20px auto;
+}
+.tile{
+    border: 2px solid #d3d6da;
+}
+.row {
+    display: flex;
+    width: 30em;
+    margin: 0 auto 8px;
+}
+.key{
+    height: 58px;
+    background-color: #d3d6da;
+    border-radius: 4px;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    margin: 0 6px 0 0;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+}
+.special{
+    flex: 1.5;
+}
+.space{
+    flex: 0.5
+}
