@@ -29,8 +29,8 @@ function fillBoard()
     {
       push_letter = document.getElementById(`${position_checker}`);
       push_letter.innerHTML = ans_array[i];
-      push_letter.style.backgroundColor = "green";
-      letterType.style.backgroundColor = "green";
+      push_letter.style.backgroundColor = "#6aaa64";
+      letterType.style.backgroundColor = "#6aaa64";
       push_letter.style.color = "white";
       letterType.style.color = "white";
       corrects++;
@@ -39,18 +39,18 @@ function fillBoard()
     {
       push_letter = document.getElementById(`${position_checker}`);
       push_letter.innerHTML = ans_array[i];
-      push_letter.style.backgroundColor = "yellow";
-      letterType.style.backgroundColor = "yellow";
-      push_letter.style.color = "white";
-      letterType.style.color = "white";
+      push_letter.style.backgroundColor = "#c9b458";
+      letterType.style.backgroundColor = "#c9b458";
+      push_letter.style.color = "#ffffff";
+      letterType.style.color = "#ffffff";
     }
     else{
       push_letter = document.getElementById(`${position_checker}`);
       push_letter.innerHTML = ans_array[i];
-      push_letter.style.backgroundColor = "grey";
-      push_letter.style.color = "white";
-      letterType.style.color = "white";
-      letterType.style.backgroundColor = "grey";
+      push_letter.style.backgroundColor = "#787c7e";
+      push_letter.style.color = "#ffffff";
+      letterType.style.color = "#ffffff";
+      letterType.style.backgroundColor = "#787c7e";
       
     }
     position_checker++;
@@ -117,26 +117,26 @@ function checkAnswer()
     if(ans_array[i] == answer_word[i])
     {
       push_letter = document.getElementById(`${position_checker}`);
-      push_letter.style.backgroundColor = "green";
-      letterType.style.backgroundColor = "green";
-      push_letter.style.color = "white";
-      letterType.style.color = "white";
+      push_letter.style.backgroundColor = "#6aaa64";
+      letterType.style.backgroundColor = "#6aaa64";
+      push_letter.style.color = "#ffffff";
+      letterType.style.color = "#ffffff";
       corrects++;
     }
     else if(answer_word.includes(ans_array[i]))
     {
       push_letter = document.getElementById(`${position_checker}`);
-      push_letter.style.backgroundColor = "yellow";
-      letterType.style.backgroundColor = "yellow";
-      push_letter.style.color = "white";
-      letterType.style.color = "white";
+      push_letter.style.backgroundColor = "#c9b458";
+      letterType.style.backgroundColor = "#c9b458";
+      push_letter.style.color = "#ffffff";
+      letterType.style.color = "#ffffff";
     }
     else{
       push_letter = document.getElementById(`${position_checker}`);
-      push_letter.style.backgroundColor = "grey";
+      push_letter.style.backgroundColor = "#787c7e";
       push_letter.style.color = "white";
       letterType.style.color = "white";
-      letterType.style.backgroundColor = "grey";
+      letterType.style.backgroundColor = "#787c7e";
       
     }
     position_checker++;
