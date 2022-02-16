@@ -8,6 +8,7 @@
     <title>Wordle</title>
 </head>
 <body>
+  <div id="container">
   <header>
     <div class="menu-left">
       <svg width="21" height="21" viewBox="0 0 21 21" fill="black" xmlns="http://www.w3.org/2000/svg">
@@ -15,7 +16,7 @@
       	<rect x="0.172974" y="7" width="20" height="3" rx="1.5"></rect>
         <rect x="0.172974" y="14" width="20" height="3" rx="1.5"></rect>
       </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" onclick="instructions()">
         <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"></path>
       </svg>
     </div>
@@ -103,6 +104,49 @@
           </svg>
         </div>
       </div>
+    </div>
+  </div></div>
+  <div id="game-box">
+    <header>
+      <div class="content">
+      <h1>HOW TO PLAY</h1>
+      <h2 onclick="remove()">+</h2>
+      <p>Guess the <a> WORDLE</a> in six tries.</p>
+      <p>Each guess must be a valid five-letter word. Hit the enter button to submit.</p>
+      <p>After each guess, the color of the tiles will change to show how close your guess was to the word.</p>
+      </div>
+    </header>
+    <div class="examples">
+      <header>
+        <div class="content-container">
+          <b>Examples</b>
+          <div class="game-grid">
+            <div data-key="w" class="keys" style="background-color: #6AAA64; border: none;">W</div>
+            <div data-key="e" class="keys">E</div>
+            <div data-key="a" class="keys">A</div>
+            <div data-key="r" class="keys">R</div>
+            <div data-key="y" class="keys">Y</div>
+          </div>
+          <p>The letter <a>W</a> is in the word and in the correct spot.</p>
+          <div class="game-grid">
+            <div data-key="p" class="keys">P</div>
+            <div data-key="i" class="keys" style="background-color: #C9B458;border: none;">I</div>
+            <div data-key="l" class="keys">L</div>
+            <div data-key="l" class="keys">L</div>
+            <div data-key="s" class="keys">S</div>
+          </div>
+          <p>The letter <a>L</a> is in the word but in the wrong spot.</p>
+          <div class="game-grid">
+            <div data-key="v" class="keys">V</div>
+            <div data-key="a" class="keys">A</div>
+            <div data-key="g" class="keys">G</div>
+            <div data-key="u" class="keys" style="background-color: #787C7E; border: none;">U</div>
+            <div data-key="e" class="keys">E</div>
+          </div>
+          <p>The letter <a>U</a> is not in the word in any spot.</p>
+        </div>
+      </header>
+      <b>A new WORDLE will be available each day!</b>
     </div>
   </div>
   <script src="script.js"></script>

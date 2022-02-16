@@ -131,3 +131,11 @@ letter.forEach(function(element){
 
   })
 })
+function instructions(){
+  document.getElementById("container").style.display = "None";
+  document.getElementById("game-box").style.display = "Block";
+}
+function remove(){
+  document.getElementById("game-box").style.display = "None";
+  document.getElementById("container").style.display = "Block";
+}
