@@ -37,8 +37,9 @@ header .title{
 .tile{
     border: 2px solid #d3d6da;
     font-size: 30px;
-    /* justify-content: center;
-    align-items: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     /* width:fit-content;
     height: fit-content; */
 }
@@ -106,5 +107,45 @@ h2{
     font-weight: lighter;
     cursor: pointer;
 }
-
-
+@media screen and (max-width: 500px){
+    .guess-grid{
+        margin-left: 80px;
+    }
+    header{
+        width: 470px;
+    }
+    #game-box{
+        margin-left: 5px;
+        margin-top: 0px;
+    }
+    .content{
+        width: 450px;
+    }
+    h2{
+        margin-left: 440px;
+    }
+}
+@media screen and (min-width: 500px) and (max-width: 540px){
+    #game-box{
+        margin-left: 25px;
+        margin-top: 0px;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 912px){
+    #game-box{
+        margin-left: 160px;
+        margin-top: 0px;
+    }
+}
+@media screen and (min-width: 912px) and (max-width: 1024px){
+    #game-box{
+        margin-left: 220px;
+        margin-top: 0px;
+    }
+}
+@media screen and (min-width: 1024px) and (max-width: 1280px){
+    #game-box{
+        margin-left: 280px;
+        margin-top: 0px;
+    }
+}
