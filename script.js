@@ -14,6 +14,18 @@ let StateLocalStorage = [];
 let attempts = 0;
 // localStorage.clear();
 
+// 1, event listener - bhuvana
+// 2, Check answer -bhuvana
+// 3, Setting localstorage - jai
+// 4, Update localstorage - jai
+// 5, Fill board - jai
+
+// STEP 1 - EVENTS LISTENERS (WINDOW KEYDOWN AND FOR KEYBOARD LETTER)
+// STEP 2 - CHECK ANSWER
+// STEP 3 - FILLBOARDD
+// STEP 4 - SETTING LOCALSTORAGE
+// STEP 5 - UPDATE LOCALSTORAGE
+
 // to fill the board
 function fillBoard() {
   position_checker = position - 5;
