@@ -182,7 +182,7 @@ window.addEventListener("keydown", function (e) {
       push_letter.innerHTML = "";
       word_length--;
     }
-  } else {
+  } else if(l.length == 1 && ((l >= 'a' && l <= 'z') ||(l >= 'A' && l <= 'Z'))){
     if (word_length != 5 && !won) {
       // console.log(l);
       push_letter = document.getElementById(`${position}`);
@@ -214,7 +214,7 @@ letter.forEach(function (element) {
         push_letter.innerHTML = "";
         word_length--;
       }
-    } else {
+    } else{
       if (word_length != 5 && !won) {
         //console.log(l);
         push_letter = document.getElementById(`${position}`);
