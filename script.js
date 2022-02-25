@@ -2,16 +2,17 @@
 let position = 1;
 let word_length = 0;
 let ans_array = [];
-let tile = "";
+let answer_filled = "";
 let answer_word = "right";
 let position_checker;
-let letter = document.querySelectorAll(".key");
-let letterType;
+let keyboard = document.querySelectorAll(".key");
+let keyboard_key;
 let corrects = 0;
 let won = false;
 let boardState = [];
 let StateLocalStorage = [];
 let attempts = 0;
+let fill_tile;
 // localStorage.clear();
 
 // 1, event listener - bhuvana
@@ -20,7 +21,7 @@ let attempts = 0;
 // 4, Update localstorage - jai
 // 5, Fill board - jai
 
-// STEP 1 - EVENTS LISTENERS (WINDOW KEYDOWN AND FOR KEYBOARD LETTER)
+// STEP 1 - EVENTS LISTENERS (WINDOW KEYDOWN AND FOR KEYBOARD keyboard)
 // STEP 2 - CHECK ANSWER
 // STEP 3 - FILLBOARDD
 // STEP 4 - SETTING LOCALSTORAGE
@@ -30,38 +31,38 @@ let attempts = 0;
 function fillBoard() {
   position_checker = position - 5;
   for (let i = 0; i < 5; i++) {
-    tile += ans_array[i];
-    letter.forEach(function (element) {
+    answer_filled += ans_array[i];
+    keyboard.forEach(function (element) {
       if (element.dataset.key == ans_array[i]) {
-        letterType = element;
+        keyboard_key = element;
       }
     });
     if (ans_array[i] == answer_word[i]) {
-      push_letter = document.getElementById(`${position_checker}`);
-      push_letter.innerHTML = ans_array[i];
-      push_letter.style.backgroundColor = "#6aaa64";
-      letterType.style.backgroundColor = "#6aaa64";
-      push_letter.style.color = "white";
-      letterType.style.color = "white";
+      fill_tile = document.getElementById(`${position_checker}`);
+      fill_tile.innerHTML = ans_array[i];
+      fill_tile.style.backgroundColor = "#6aaa64";
+      keyboard_key.style.backgroundColor = "#6aaa64";
+      fill_tile.style.color = "white";
+      keyboard_key.style.color = "white";
       corrects++;
     } else if (answer_word.includes(ans_array[i])) {
-      push_letter = document.getElementById(`${position_checker}`);
-      push_letter.innerHTML = ans_array[i];
-      push_letter.style.backgroundColor = "#c9b458";
-      letterType.style.backgroundColor = "#c9b458";
-      push_letter.style.color = "#ffffff";
-      letterType.style.color = "#ffffff";
+      fill_tile = document.getElementById(`${position_checker}`);
+      fill_tile.innerHTML = ans_array[i];
+      fill_tile.style.backgroundColor = "#c9b458";
+      keyboard_key.style.backgroundColor = "#c9b458";
+      fill_tile.style.color = "#ffffff";
+      keyboard_key.style.color = "#ffffff";
     } else {
-      push_letter = document.getElementById(`${position_checker}`);
-      push_letter.innerHTML = ans_array[i];
-      push_letter.style.backgroundColor = "#787c7e";
-      push_letter.style.color = "#ffffff";
-      letterType.style.color = "#ffffff";
-      letterType.style.backgroundColor = "#787c7e";
+      fill_tile = document.getElementById(`${position_checker}`);
+      fill_tile.innerHTML = ans_array[i];
+      fill_tile.style.backgroundColor = "#787c7e";
+      fill_tile.style.color = "#ffffff";
+      keyboard_key.style.color = "#ffffff";
+      keyboard_key.style.backgroundColor = "#787c7e";
     }
     position_checker++;
   }
-  tile = "";
+  answer_filled = "";
   if (corrects == 5) {
     won = true;
     console.log("game over");
@@ -110,49 +111,48 @@ function updateLocalStorage() {
 
 // to check if the answer is right
 function checkAnswer() {
-  //console.log(ans_array);
   position_checker = position - 5;
   for (let i = 0; i < 5; i++) {
-    tile += ans_array[i];
-    letter.forEach(function (element) {
+    answer_filled += ans_array[i];
+    keyboard.forEach(function (element) {
       if (element.dataset.key == ans_array[i]) {
-        letterType = element;
+        keyboard_key = element;
       }
     });
     if (ans_array[i] == answer_word[i]) {
-      push_letter = document.getElementById(`${position_checker}`);
-      push_letter.style.backgroundColor = "#6aaa64";
-      letterType.style.backgroundColor = "#6aaa64";
-      push_letter.style.color = "#ffffff";
-      letterType.style.color = "#ffffff";
+      fill_tile = document.getElementById(`${position_checker}`);
+      fill_tile.style.backgroundColor = "#6aaa64";
+      keyboard_key.style.backgroundColor = "#6aaa64";
+      fill_tile.style.color = "#ffffff";
+      keyboard_key.style.color = "#ffffff";
       corrects++;
     } else if (answer_word.includes(ans_array[i])) {
-      push_letter = document.getElementById(`${position_checker}`);
-      push_letter.style.backgroundColor = "#c9b458";
-      letterType.style.backgroundColor = "#c9b458";
-      push_letter.style.color = "#ffffff";
-      letterType.style.color = "#ffffff";
+      fill_tile = document.getElementById(`${position_checker}`);
+      fill_tile.style.backgroundColor = "#c9b458";
+      keyboard_key.style.backgroundColor = "#c9b458";
+      fill_tile.style.color = "#ffffff";
+      keyboard_key.style.color = "#ffffff";
     } else {
-      push_letter = document.getElementById(`${position_checker}`);
-      push_letter.style.backgroundColor = "#787c7e";
-      push_letter.style.color = "white";
-      letterType.style.color = "white";
-      letterType.style.backgroundColor = "#787c7e";
+      fill_tile = document.getElementById(`${position_checker}`);
+      fill_tile.style.backgroundColor = "#787c7e";
+      fill_tile.style.color = "white";
+      keyboard_key.style.color = "white";
+      keyboard_key.style.backgroundColor = "#787c7e";
     }
     position_checker++;
   }
-  // console.log(tile);
+  // console.log(answer_filled);
   // localStorage.setItem("attempts",attempts);
   attempts = JSON.parse(localStorage.getItem("attempts"));
   // console.log(attempts);
   // console.log(boardState);
   console.log(boardState);
-  boardState[attempts] = tile;
+  boardState[attempts] = answer_filled;
   console.log(boardState);
   StateLocalStorage = boardState;
   attempts++;
   updateLocalStorage();
-  tile = "";
+  answer_filled = "";
 
   if (corrects == 5) {
     won = true;
@@ -167,8 +167,8 @@ window.addEventListener("keydown", function (e) {
   if (l == "Enter") {
     if (position % 5 == 1) {
       for (let i = position - 5, j = 0; i < position; i++, j++) {
-        push_letter = document.getElementById(`${i}`);
-        ans_array[j] = push_letter.innerHTML;
+        fill_tile = document.getElementById(`${i}`);
+        ans_array[j] = fill_tile.innerHTML;
       }
       checkAnswer();
       word_length = 0;
@@ -177,16 +177,16 @@ window.addEventListener("keydown", function (e) {
     // console.log(position);
     if (word_length) {
       position--;
-      push_letter = document.getElementById(`${position}`);
-      // console.log(push_letter);
-      push_letter.innerHTML = "";
+      fill_tile = document.getElementById(`${position}`);
+      // console.log(fill_tile);
+      fill_tile.innerHTML = "";
       word_length--;
     }
   } else if(l.length == 1 && ((l >= 'a' && l <= 'z') ||(l >= 'A' && l <= 'Z'))){
     if (word_length != 5 && !won) {
       // console.log(l);
-      push_letter = document.getElementById(`${position}`);
-      push_letter.innerHTML = l;
+      fill_tile = document.getElementById(`${position}`);
+      fill_tile.innerHTML = l;
       position++;
       word_length++;
     }
@@ -194,14 +194,14 @@ window.addEventListener("keydown", function (e) {
 });
 
 // adding evetlistener to the keyboard on the screen
-letter.forEach(function (element) {
+keyboard.forEach(function (element) {
   element.addEventListener("click", function () {
     let l = element.dataset.key;
     if (l == "Enter") {
       if (position % 5 == 1) {
         for (let i = position - 5, j = 0; i < position; i++, j++) {
-          push_letter = document.getElementById(`${i}`);
-          ans_array[j] = push_letter.innerHTML;
+          fill_tile = document.getElementById(`${i}`);
+          ans_array[j] = fill_tile.innerHTML;
         }
         checkAnswer();
         word_length = 0;
@@ -209,16 +209,16 @@ letter.forEach(function (element) {
     } else if (l == "Backspace") {
       if (word_length) {
         position--;
-        push_letter = document.getElementById(`${position}`);
-        //console.log(push_letter);
-        push_letter.innerHTML = "";
+        fill_tile = document.getElementById(`${position}`);
+        //console.log(fill_tile);
+        fill_tile.innerHTML = "";
         word_length--;
       }
     } else{
       if (word_length != 5 && !won) {
         //console.log(l);
-        push_letter = document.getElementById(`${position}`);
-        push_letter.innerHTML = l;
+        fill_tile = document.getElementById(`${position}`);
+        fill_tile.innerHTML = l;
         position++;
         word_length++;
       }
